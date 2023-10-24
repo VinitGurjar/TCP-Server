@@ -13,5 +13,12 @@ func main() {
 	if err != nil {
 		log.Fatal(err)
 	}
-	fmt.Println("radhe radhe", listener)
+
+	//Waiting for a connection
+	conn, err := listener.Accept()
+	if err != nil {
+		log.Fatal(err)
+	}
+
+	fmt.Println(conn)
 }
