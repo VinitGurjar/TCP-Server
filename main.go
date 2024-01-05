@@ -15,6 +15,8 @@ func do(conn net.Conn) {
 		log.Fatal(err)
 	}
 	//Memeking some fake process
+
+	log.Println("⭕processing the request")
 	time.Sleep(6 * time.Second)
 	conn.Write([]byte("HTTP/1.1 200 OK\r\n\r\nHello, Golang!\r\n"))
 	//Close connection
@@ -30,10 +32,13 @@ func main() {
 
 	for {
 		//Waiting for a connection
+		log.Println("waiting for a client to connrct")
 		conn, err := listener.Accept()
 		if err != nil {
 			log.Fatal(err)
 		}
+
+		log.Println("🤗client connected successfully🌻")
 
 		do(conn)
 
