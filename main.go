@@ -40,7 +40,7 @@ func main() {
 
 		log.Println("🤗client connected successfully🌻")
 
-		do(conn)
+		go do(conn)
 
 	}
 
